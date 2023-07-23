@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.potemkin.composition.R
 import ru.potemkin.composition.data.GameRepositoryImpl
+import ru.potemkin.composition.domain.entities.GameResult
 import ru.potemkin.composition.domain.entities.GameSettings
 import ru.potemkin.composition.domain.entities.Level
 import ru.potemkin.composition.domain.entities.Question
@@ -48,6 +49,14 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val _enoughPercentOfRightAnswers = MutableLiveData<Boolean>()
     val enoughPercentOfRightAnswers: LiveData<Boolean>
         get() = _enoughPercentOfRightAnswers
+
+    private val _minPercent = MutableLiveData<Int>()
+    val minPercent: LiveData<Int>
+        get() = _minPercent
+
+    private val _gameResult = MutableLiveData<GameResult>()
+    val gameResult: LiveData<GameResult>
+        get() = _gameResult
 
     private var countOfRightAnswers = 0
     private var countOfQuestions = 0
@@ -94,6 +103,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private fun getGameSettings(level: Level) {
         this.level = level
         this.gameSettings = getGameSettingsUseCase(level)
+        _minPercent.value = gameSettings.minPercentOfRightAnswers
     }
 
     private fun startTimer() {
@@ -126,7 +136,13 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun finishGame() {
-        TODO("Not yet implemented")
+        _gameResult.value= GameResult(
+           enoughCountOfRightAnswers.value == true &&
+                    enoughPercentOfRightAnswers.value ==true,
+            countOfRightAnswers,
+            countOfQuestions,
+            gameSettings
+        )
     }
 
     companion object {
