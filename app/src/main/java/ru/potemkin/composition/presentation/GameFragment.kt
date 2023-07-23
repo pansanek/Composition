@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.potemkin.composition.R
 import ru.potemkin.composition.databinding.FragmentGameBinding
-import ru.potemkin.composition.databinding.FragmentWelcomeBinding
 import ru.potemkin.composition.domain.entities.GameResult
 import ru.potemkin.composition.domain.entities.GameSettings
 import ru.potemkin.composition.domain.entities.Level

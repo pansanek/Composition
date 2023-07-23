@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import ru.potemkin.composition.R
-import ru.potemkin.composition.databinding.FragmentChooseLevelBinding
 import ru.potemkin.composition.databinding.FragmentGameFinishedBinding
 import ru.potemkin.composition.domain.entities.GameResult
 
