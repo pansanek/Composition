@@ -5,7 +5,6 @@ import android.os.CountDownTimer
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import ru.potemkin.composition.R
 import ru.potemkin.composition.data.GameRepositoryImpl
 import ru.potemkin.composition.domain.entities.GameSettings
@@ -13,7 +12,6 @@ import ru.potemkin.composition.domain.entities.Level
 import ru.potemkin.composition.domain.entities.Question
 import ru.potemkin.composition.domain.usecases.GenerateQuestionUseCase
 import ru.potemkin.composition.domain.usecases.GetGameSettingsUseCase
-import kotlin.math.min
 
 class GameViewModel(application: Application) : AndroidViewModel(application) {
     private lateinit var gameSettings: GameSettings

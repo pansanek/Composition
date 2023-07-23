@@ -1,6 +1,5 @@
 package ru.potemkin.composition.domain.usecases
 
-import ru.potemkin.composition.domain.entities.GameSettings
 import ru.potemkin.composition.domain.entities.Question
 import ru.potemkin.composition.domain.repository.GameRepository
 
